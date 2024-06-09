@@ -1,0 +1,27 @@
+{
+  "version": "0.2.0",
+  "tasks": [
+    {
+      "label": "tsc: build - tsconfig.json",
+      "type": "typescript",
+      "tsconfig": "tsconfig.json",
+      "problemMatcher": ["$tsc"],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    }
+  ],
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Run Program",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}/out/app.js",
+      "preLaunchTask": "tsc: build - tsconfig.json",
+      "outFiles": ["${workspaceFolder}/out/**/*.js"],
+      "console": "integratedTerminal"
+    }
+  ]
+}
